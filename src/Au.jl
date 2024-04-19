@@ -32,7 +32,7 @@ module Aux
 
         Base.CoreLogging.logmsg_code(
             (Base.CoreLogging.@_sourceinfo)..., 
-            esc(Logging.Info), exs...
+            esc(Base.CoreLogging.Info), exs...
             )
     end
 
