@@ -9,9 +9,8 @@ module Aux
         not_show_my_debug = false  # 否定之否定 为肯定，即显示        
         if not_show_my_debug
             return nothing
-        end 
-
-        # typeof(exs) |> display        
+        end
+              
         exs = collect(exs)
         exs[1] = exs[1] isa String ? exs[1] : string(exs[1])         
 
