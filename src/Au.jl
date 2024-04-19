@@ -1,9 +1,9 @@
 
 module Aux
-    using Layout
-    using Logging
-
-    export @log
+    # using Layout
+    # Package General does not have Layout in its dependencies
+    using General.Layout
+        
     macro log(exs...) 
 
         not_show_my_debug = false  # 否定之否定 为肯定，即显示        
@@ -35,5 +35,7 @@ module Aux
             esc(Logging.Info), exs...
             )
     end
+
+    export @log
 
 end
