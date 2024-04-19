@@ -1,5 +1,12 @@
 module General
 
-# Write your package code here.
+export Layout
+include("Layout.jl")
+
+export Aux
+include("Au.jl")
+
+export Plot
+include("Plot.jl")
 
 end
