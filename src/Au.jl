@@ -5,14 +5,16 @@ module Aux
     using General.Layout
 
     # function __init__()
-    log = true
+        # log = true
     # end
+    # log = true
         
     macro log(exs...) 
 
         # not_show_my_debug = false  # 否定之否定 为肯定，即显示        
         # if not_show_my_debug
-        if ! Aux.log
+        # if ! Aux.log        
+        if ! Main.log
             return nothing
         end
               
