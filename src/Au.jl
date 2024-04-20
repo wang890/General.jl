@@ -4,9 +4,9 @@ module Aux
     # Package General does not have Layout in its dependencies
     using General.Layout
 
-    function __init__()
-        Main.log = true
-    end
+    # function __init__()
+    Main.log = true
+    # end
         
     macro log(exs...) 
 
