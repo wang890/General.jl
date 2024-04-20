@@ -10,14 +10,13 @@ module Aux
     # log = true
         
     macro log(exs...) 
-
-        # not_show_my_debug = false  # 否定之否定 为肯定，即显示        
-        # if not_show_my_debug
-        # if ! Aux.log        
+        # not_show_my_debug = false  # 否定之否定 为肯定，即显示   
         # if ! Main.log
         #     return nothing
         # end
-        if Main.log  
+        if ! Main.log
+            quote let nothing end end  # 必须参照 else 的 logmsg_code 返回结果形式
+        else           
             exs = collect(exs)
             exs[1] = exs[1] isa String ? exs[1] : string(exs[1])         
 
@@ -36,9 +35,10 @@ module Aux
             end
             exs[1] =  replaced    
 
-            Base.CoreLogging.logmsg_code((Base.CoreLogging.@_sourceinfo)..., esc(Base.CoreLogging.Info), exs...)
-        end        
-        
+            Base.CoreLogging.logmsg_code(
+                (Base.CoreLogging.@_sourceinfo)..., 
+                esc(Base.CoreLogging.Info), exs...)        
+        end 
     end
 
     export @log
