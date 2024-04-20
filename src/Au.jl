@@ -5,7 +5,7 @@ module Aux
     using General.Layout
 
     # function __init__()
-    Main.log = true
+    global log = true
     # end
         
     macro log(exs...) 
