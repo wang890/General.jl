@@ -3,11 +3,16 @@ module Aux
     # using Layout
     # Package General does not have Layout in its dependencies
     using General.Layout
+
+    function __init__()
+        Main.log = true
+    end
         
     macro log(exs...) 
 
-        not_show_my_debug = false  # 否定之否定 为肯定，即显示        
-        if not_show_my_debug
+        # not_show_my_debug = false  # 否定之否定 为肯定，即显示        
+        # if not_show_my_debug
+        if ! Main.log
             return nothing
         end
               
