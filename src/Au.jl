@@ -10,10 +10,10 @@ module Aux
             # exs = collect(exs)
             # push!(exs,"")
             # plus = true
-            the_first = pop!(exs)
-            exs = []
-            push!(exs, the_first)            
-            push!(exs,"")
+            # the_first = pop!(exs)
+            exs = [exs[1], ""]
+            # push!(exs, the_first)                      
+            # push!(exs,"")
             plus = true
         else
             exs = collect(exs)
