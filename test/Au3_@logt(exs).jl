@@ -8,6 +8,8 @@ re = r"^\s*(?:#|$)"
 
 a = 7
 
+@logt arr1 
+
 b = ["hello", false]
 
 @logt arr1 r"^\s*(?:#|$)" b a

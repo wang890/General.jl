@@ -7,7 +7,12 @@ module Aux
             exs = ["", ""]
             plus = true
         elseif exs_len == 1
-            exs = collect(exs)
+            # exs = collect(exs)
+            # push!(exs,"")
+            # plus = true
+            the_first = pop!(exs)
+            exs = []
+            push!(exs, the_first)            
             push!(exs,"")
             plus = true
         else
