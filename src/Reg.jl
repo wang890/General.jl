@@ -13,13 +13,13 @@ module Reg
     function get_match_capture(
         str::Union{String, SubString{String}}, regex::Base.Regex, old_new::Pair{String, String}...; i::Int=1
         ) ::Tuple{String, Union{Int, Nothing}}
-        
-        if strip(str) == ""
+
+        if strip(str) == "" # strip能接收 SubString，可以与String ""做比较
             return "", nothing
         end        
         m = match(regex, str)
         if m !== nothing && length(m.captures) >=i # 要有，所有都有，因为是一个regex
-            capture = replace(strip(m.captures[i]), old_new...)
+            capture = string(replace(strip(m.captures[i]), old_new...)) # 不然是SubString类型,后续没法split()
             offset = m.offsets[i]
         else
             capture = ""
