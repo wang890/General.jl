@@ -1,7 +1,7 @@
 
-module Regex
+module Reg
 
-    export get_cut
+    # export get_cut
         
     function get_cut(str::String, regex_start::String, regex_end::String)::String    
         # index_start = match(@r_str(regex_start), str).offset

@@ -15,7 +15,7 @@ module General
     export Plot
     include("Plot.jl")
 
-    export Regex
-    include("Regex.jl")
+    export Reg
+    include("Reg.jl")
 
 end
