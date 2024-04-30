@@ -4,8 +4,9 @@ module Regex
     export get_cut
         
     function get_cut(str::String, regex_start::String, regex_end::String)::String    
-        index_start = match(@r_str(regex_start), str).offset
-        index_end = match(@r_str(regex_end), str).offset + (length(regex_end) - 1)
+        # index_start = match(@r_str(regex_start), str).offset
+        index_start = match(Base.Regex(regex_start), str).offset
+        index_end = match(Base.Regex(regex_end), str).offset + (length(regex_end) - 1)
         str[index_start: index_end]
     end
 
