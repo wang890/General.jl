@@ -1,5 +1,8 @@
 module General
 
+    export Series
+    include("series/series.jl")
+
     export Layout
     include("Layout.jl")
 
@@ -11,5 +14,8 @@ module General
 
     export Plot
     include("Plot.jl")
+
+    export Regex
+    include("Regex.jl")
 
 end
