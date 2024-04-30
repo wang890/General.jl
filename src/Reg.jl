@@ -10,9 +10,9 @@ module Reg
         str[index_start: index_end]
     end
 
-    function get_match_capture(str::Union{String, SubString{String}}, regex::Base.Regex, old_new::Pair{String, String}...; i::Int=1) ::String
+    function get_match_capture(str::Union{String, SubString{String}}, regex::Base.Regex, old_new::Pair{String, String}...; i::Int=1) ::Tuple{String, Int}
         if strip(str) == ""
-            return ["", nothing]
+            return "", nothing
         end        
         m = match(regex, str)
         if m !== nothing && length(m.captures) >=i # 要有，所有都有，因为是一个regex
@@ -24,7 +24,9 @@ module Reg
         end
         # capture, offset
         # MethodError: Cannot `convert` an object of type Tuple{String, Int64} to an object of type String
-        [capture, offset]   
+        # 原来是function结果断言写成了String
+        capture, offset
+
     end
 
     # function get_match_captures_offsets(str::String, regex::Base.Regex)
