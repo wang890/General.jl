@@ -10,7 +10,7 @@ module Reg
         str[index_start: index_end]
     end
 
-    function get_match_capture(str::String, regex::Base.Regex, old_new::Pair{String, String}...; i::Int=1) ::String
+    function get_match_capture(str::Union{String, SubString{String}}, regex::Base.Regex, old_new::Pair{String, String}...; i::Int=1) ::String
         if strip(str) == ""
             return "", nothing
         end        
