@@ -12,7 +12,7 @@ module Reg
 
     function get_match_capture(str::Union{String, SubString{String}}, regex::Base.Regex, old_new::Pair{String, String}...; i::Int=1) ::String
         if strip(str) == ""
-            return "", nothing
+            return ["", nothing]
         end        
         m = match(regex, str)
         if m !== nothing && length(m.captures) >=i # 要有，所有都有，因为是一个regex
@@ -22,7 +22,9 @@ module Reg
             capture = ""
             offset = nothing
         end
-        capture, offset    
+        # capture, offset
+        # MethodError: Cannot `convert` an object of type Tuple{String, Int64} to an object of type String
+        [capture, offset]   
     end
 
     # function get_match_captures_offsets(str::String, regex::Base.Regex)
