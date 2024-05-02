@@ -19,7 +19,7 @@ module Reg
         end        
         m = match(regex, str)
         if m !== nothing && length(m.captures) >=i # 要有，所有都有，因为是一个regex
-            capture = string(replace(strip(m.captures[i]), old_new...)) # 不然是SubString类型,后续没法split()
+            capture = replace(strip(m.captures[i]), old_new...)            
             offset = m.offsets[i]
         else
             capture = ""
