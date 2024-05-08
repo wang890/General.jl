@@ -10,16 +10,42 @@ module Reg
         str[index_start: index_end]
     end
 
+    # function get_match_capture(
+    #     str::Union{String, SubString{String}}, regex::Base.Regex, old_new::Pair{String, String}...; i::Int=1
+    #     ) ::Tuple{String, Union{Int, Nothing}}
+
+    #     if strip(str) == "" # strip能接收 SubString，可以与String ""做比较
+    #         return "", nothing
+    #     end        
+    #     m = match(regex, str)
+    #     if m !== nothing && length(m.captures) >=i # 要有，所有都有，因为是一个regex
+    #         capture = replace(strip(m.captures[i]), old_new...)            
+    #         offset = m.offsets[i]
+    #     else
+    #         capture = ""
+    #         offset = nothing
+    #     end
+    #     # capture, offset
+    #     # MethodError: Cannot `convert` an object of type Tuple{String, Int64} to an object of type String
+    #     # 原来是function结果断言写成了String
+    #     capture, offset
+
+    # end
+
     function get_match_capture(
-        str::Union{String, SubString{String}}, regex::Base.Regex, old_new::Pair{String, String}...; i::Int=1
-        ) ::Tuple{String, Union{Int, Nothing}}
+        str::Union{String, SubString{String}}, regex::Base.Regex, old_new::Pair{String, String}...; 
+        i::Int=1, strp::Bool=true) ::Tuple{String, Union{Int, Nothing}}
 
         if strip(str) == "" # strip能接收 SubString，可以与String ""做比较
             return "", nothing
         end        
         m = match(regex, str)
         if m !== nothing && length(m.captures) >=i # 要有，所有都有，因为是一个regex
-            capture = replace(strip(m.captures[i]), old_new...)            
+            if strp
+                capture = replace(strip(m.captures[i]), old_new...) 
+            else
+                capture = replace(m.captures[i], old_new...)
+            end
             offset = m.offsets[i]
         else
             capture = ""
