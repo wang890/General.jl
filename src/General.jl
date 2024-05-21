@@ -12,8 +12,8 @@ module General
     export Aux
     include("Au.jl")
 
-    export Plot
-    include("Plot.jl")
+    # export Plot
+    include("Plot/Plot.jl")
 
     export Reg
     include("Reg.jl")
