@@ -3,7 +3,7 @@ module General
     export Series
     include("series/series.jl")
 
-    export Layout
+    # export Layout
     include("Layout.jl")
 
     export Explore
