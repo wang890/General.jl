@@ -86,12 +86,13 @@ module Series
     end
     
     function push!_strings_for_series_print(x, strings, recurved; width=70)    
-        # recurved = [recurved[1] + 1]        
-
+        # recurved = [recurved[1] + 1]
         # recurved_current = [recurved[1]]
         # tab = " " ^ (4 * recurved_current[1])
 
         tab = (" "^4)^recurved
+        recurved_next = recurved + 1            
+        tab_next = (" "^4)^recurved_next  
         tx = typeof(x)
         set_blank = recurved == 1 ? true : false
     
@@ -104,6 +105,9 @@ module Series
             else
                 set_blank = true
                 strings[end] = "\n" * strings[end] * "$tx" # full type name
+                # if x isa Dict && recurved in [1,]
+                #     push!(strings, tab_next * ("$(collect(keys(x)))"[2:end-1]))
+                # end  
             end
         elseif len_strings !=0 && endswith(strings[end], "=> ") && !(x isa Union{Dict, Vector, Tuple, Set})
             blank = set_blank ? "\n" : "" 
@@ -121,6 +125,9 @@ module Series
                     #     tx = tx[1:index-1]
                     # end
                     push!(strings, " "^4 * "$tx")
+                    if x isa Dict
+                        push!(strings, " "^4 * ("$(collect(keys(x)))"[2:end-1]))
+                    end                        
                 end
             end
         else  # 并且前提：上次不以 "=> " 结尾，或者之前strings为空(也是上次不以 "=> " 结尾) 且不是 Union{Dict, Vector, Tuple, Set}, 比如x就是字符串 符号等
@@ -129,8 +136,8 @@ module Series
     
         ## 处理 element, 用tab_1
         # recurved_next = recurved == 0 ? recurved : (recurved + 1)    
-        recurved_next = recurved + 1            
-        tab_next = (" "^4)^recurved_next        
+        # recurved_next = recurved + 1            
+        # tab_next = (" "^4)^recurved_next        
 
         if x isa Dict && length(x) != 0 # 等于0的情况 前面已经处理                 
             for (k,v) in x

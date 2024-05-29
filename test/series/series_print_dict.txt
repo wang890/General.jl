@@ -1,4 +1,5 @@
 Dict{Symbol, Any}
+:components, :variables, :kwargs, :structural_parameters, :independent_variable, :parameters, :equations
 
 :components => Vector{Any}
     (:if, :flag
