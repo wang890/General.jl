@@ -1,0 +1,121 @@
+Dict{Symbol, Any}
+
+:components => Vector{Any}
+    (:if, :flag
+    [[:sys1, :C]]
+    [[:sys2, :C]])
+  
+    (:if, :flag2
+    [[:sys3, :C]]
+    [[:sys4, :C]])
+
+:variables => Dict{Symbol, Dict{Symbol, Any}}
+
+    :R => Dict{Symbol, Any}
+        :type => Real
+
+:kwargs => Dict{Symbol, Dict}
+
+    :a => Dict{Symbol, Union{Nothing, DataType}}
+        :value => nothing
+        :type => Real
+
+    :R => Dict{Symbol, Union{Nothing, DataType}}
+        :value => nothing
+        :type => Real
+
+    :flag => Dict{Symbol, Bool}
+        :value => true
+
+:structural_parameters => Dict{Symbol, Dict}
+
+    :flag => Dict{Symbol, Bool}
+        :value => true
+
+:independent_variable => :t
+
+:parameters => Dict{Symbol, Dict{Symbol, Any}}
+
+    :a => Dict{Symbol, Any}
+        :type => Real
+
+    :a2 => Dict{Symbol, Any}
+        :type => AbstractArray{Real}
+
+        :condition => Tuple{Symbol, Symbol, Dict{Symbol, Any}, Dict{Symbol, Any}}
+            (:if, :flag
+
+            Dict{Symbol, Any}
+
+                :kwargs => Dict{Any, Any}
+
+                    :a1 => Dict{Symbol, Union{Nothing, DataType}}
+                        :value => nothing
+                        :type => Real
+
+                :parameters => Vector{Any}
+
+                    Dict{Symbol, Dict{Symbol, Any}}
+
+                        :a1 => Dict{Symbol, Any}
+                            :type => AbstractArray{Real}
+
+            Dict{Symbol, Any}
+
+                :variables => Vector{Any}
+                    [Dict{Symbol, Dict{Symbol, Any}}()]
+
+                :kwargs => Dict{Any, Any}
+
+                    :a2 => Dict{Symbol, Union{Nothing, DataType}}
+                        :value => nothing
+                        :type => Real
+
+                :parameters => Vector{Any}
+
+                    Dict{Symbol, Dict{Symbol, Any}}
+
+                        :a2 => Dict{Symbol, Any}
+                            :type => AbstractArray{Real})
+
+    :a1 => Dict{Symbol, Any}
+        :type => AbstractArray{Real}
+
+        :condition => Tuple{Symbol, Symbol, Dict{Symbol, Any}, Dict{Symbol, Any}}
+            (:if, :flag
+
+            Dict{Symbol, Any}
+
+                :kwargs => Dict{Any, Any}
+
+                    :a1 => Dict{Symbol, Union{Nothing, DataType}}
+                        :value => nothing
+                        :type => Real
+
+                :parameters => Vector{Any}
+
+                    Dict{Symbol, Dict{Symbol, Any}}
+
+                        :a1 => Dict{Symbol, Any}
+                            :type => AbstractArray{Real}
+
+            Dict{Symbol, Any}
+
+                :variables => Vector{Any}
+                    [Dict{Symbol, Dict{Symbol, Any}}()]
+
+                :kwargs => Dict{Any, Any}
+
+                    :a2 => Dict{Symbol, Union{Nothing, DataType}}
+                        :value => nothing
+                        :type => Real
+
+                :parameters => Vector{Any}
+
+                    Dict{Symbol, Dict{Symbol, Any}}
+
+                        :a2 => Dict{Symbol, Any}
+                            :type => AbstractArray{Real})
+
+:equations => Vector{Any}
+    ["D(R) ~ 3"]

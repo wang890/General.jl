@@ -2,6 +2,7 @@ module General
 
     export Series
     include("series/series.jl")
+    # include("series/dict.jl")
 
     # export Layout
     include("Layout.jl")

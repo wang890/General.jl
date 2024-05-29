@@ -1,0 +1,10 @@
+Vector{Any}
+Tuple{Symbol, Symbol, Vector{Vector{Union{Expr, Symbol}}}, Vector{Vector{Union{Expr, Symbol}}}}
+(:if, :flag
+[[:sys1, :C]]
+[[:sys2, :C]])
+  
+Tuple{Symbol, Symbol, Vector{Vector{Union{Expr, Symbol}}}, Vector{Vector{Union{Expr, Symbol}}}}
+(:if, :flag2
+[[:sys3, :C]]
+[[:sys4, :C]])
